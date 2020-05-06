@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="來源檔案">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="標頭檔">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="資源檔">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="來源檔案\ECS">
+      <UniqueIdentifier>{1df8674e-ef56-4297-bf49-57b3cc29b64c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Collision.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TileComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardController.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TextImageComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="WarshipComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerComponent.h">
+      <Filter>來源檔案\ECS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Collision.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS.cpp">
+      <Filter>來源檔案\ECS</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
