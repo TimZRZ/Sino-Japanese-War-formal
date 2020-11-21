@@ -7,12 +7,13 @@
 #include <math.h>
 #include <SDL_ttf.h>
 
+using namespace std;
+
 class TimerComponent : public Component
 {
 public:
-	int mStartTicks, mPausedTicks, lastStartTicks;
-	int day, month;
-	bool mStarted, mPaused;
+	int turnNum;
+	int day, month, year;
 
 	SDL_Texture* texture;
 	SDL_Texture* text_texture;
@@ -24,10 +25,29 @@ public:
 	SDL_Color textColor = { 255, 255, 255, 0 };
 	TTF_Font* Sans = TTF_OpenFont("../assets/times.ttf", 24);
 
+	char *localeToUTF8(const char *src) {
+		static char *buf = NULL;
+		if (buf)
+		{
+			free(buf);
+			buf = NULL;
+		}
+		wchar_t *unicode_buf;
+		int nRetLen = MultiByteToWideChar(CP_ACP, 0, src, -1, NULL, 0);
+		unicode_buf = (wchar_t*)malloc((nRetLen + 1) * sizeof(wchar_t));
+		MultiByteToWideChar(CP_ACP, 0, src, -1, unicode_buf, nRetLen);
+		nRetLen = WideCharToMultiByte(CP_UTF8, 0, unicode_buf, -1, NULL, 0, NULL, NULL);
+		buf = (char*)malloc(nRetLen + 1);
+		WideCharToMultiByte(CP_UTF8, 0, unicode_buf, -1, buf, nRetLen, NULL, NULL);
+		free(unicode_buf);
+		return buf;
+	}
+
 	TimerComponent()
 	{
 		day = 1;
-		month = 1;
+		month = 7;
+		year = 1897L;
 
 		SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 		texture = TextureManager::loadTexture("../assets/timer.png");
@@ -42,14 +62,23 @@ public:
 		destRect.w = 400;
 		destRect.h = 200;
 
-		text_surface = TTF_RenderText_Solid(Sans, ("Month: " + std::to_string(month) + " Day: " + std::to_string(day) + " Time: " + std::to_string(mStartTicks)).c_str(), textColor);
+
+		TTF_Init();
+		TTF_Font *font = TTF_OpenFont("../assets/mingliub.ttc", 24);
+		if (!font) {
+			MessageBox(0, 0, "no", 0);
+		}
+
+		char timeStamp[20];
+		sprintf_s(timeStamp, "%d%s%d%s%d%s", (char *)year, "YEAR", (char *)month, "MONTH", (char *)day, "DAY");
+
+		text_surface = TTF_RenderUTF8_Solid(font, localeToUTF8(timeStamp), textColor);
 		text_texture = SDL_CreateTextureFromSurface(Game::renderer, text_surface);
 
 		textRect.x = 1540;
 		textRect.y = 30;
 		textRect.w = text_surface->w;
 		textRect.h = text_surface->h;
-		Start();
 	}
 
 	~TimerComponent()
@@ -57,88 +86,17 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
-	void Start()
-	{
-		mStarted = true;
-		mPaused = false;
-		//while (true)
-		//{
-		SDL_Init(SDL_INIT_TIMER);
-		mStartTicks = SDL_GetTicks() / 1000;
-		//}
-		
-		
-	}
-
-	void Stop()
-	{
-		mStarted = false;
-		mPaused = false;
-	}
-
-	void Pause()
-	{
-		if (mStarted && !mPaused) {
-			mPaused = true;
-			mPausedTicks = SDL_GetTicks() - mStartTicks;
-		}
-	}
-
-	void Unpause()
-	{
-		if (mPaused) {
-			mPaused = false;
-			mStartTicks = SDL_GetTicks() - mPausedTicks;
-			mPausedTicks = 0;
-		}
-	}
-
-	int Restart()
-	{
-		int elapsedTicks = Ticks();
-		Start();
-		return elapsedTicks;
-	}
-
-	int Ticks() const
-	{
-		if (mStarted) {
-			if (mPaused)
-				return mPausedTicks;
-			else
-				return SDL_GetTicks() / 1000 - mStartTicks;
-		}
-		return 0;
-	}
-
-	bool Started() const
-	{
-		return mStarted;
-	}
-
-	bool Paused() const
-	{
-		return mPaused;
-	}
-
 	void update() override
 	{
-		mStartTicks = (SDL_GetTicks() / 1000) % 24;
-		if (mStartTicks == 0 && mStartTicks != lastStartTicks)
-		{
-			day += 1;
-		}
-		if (day == 31)
-		{
-			month += 1;
-			day = 1;
-		}
-		text_surface = TTF_RenderText_Solid(Sans, ("Month: " + std::to_string(month) + " Day: " + std::to_string(day) + " Time: " + std::to_string(mStartTicks)).c_str(), textColor);
+		/*
+		text_surface = TTF_RenderUTF8_Solid(Sans, (
+			std::to_string(year) + localeToUTF8("Äê") +
+			std::to_string(month) + localeToUTF8("ÔÂ") +
+			std::to_string(day) + localeToUTF8("ÈÕ")).c_str(), textColor);
 		textRect.w = text_surface->w;
 		textRect.h = text_surface->h;
 		text_texture = SDL_CreateTextureFromSurface(Game::renderer, text_surface);
-		SDL_RenderCopy(Game::renderer, text_texture, NULL, &textRect);
-		lastStartTicks = mStartTicks;
+		SDL_RenderCopy(Game::renderer, text_texture, NULL, &textRect);*/
 	}
 
 	void draw() override

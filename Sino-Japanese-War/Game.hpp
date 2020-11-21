@@ -25,8 +25,9 @@ public:
 	static bool dragMap;
 	static int scale;
 
-	static void addTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex);
-	static void addBackGroundTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex);
+	static void addTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, int xTrans, int yTrans);
+	static void addBackGroundTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, int xTrans, int yTrans);
+	static void addStringTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, const char* path, int xTrans, int yTrans);
 	static void addTextImage(int srcX, int srcY, int xpos, int ypos, const char* path);
 
 	static void checkClick(int x, int y);

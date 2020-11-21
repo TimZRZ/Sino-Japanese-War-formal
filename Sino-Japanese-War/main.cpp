@@ -12,8 +12,7 @@ int main(int argc, char *argv[])
 	int frameTime;
 
 	game = new Game();
-	game->init("Timothy Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		1920, 1060, false);
+	game->init("Timothy Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1060, false);
 	while (game->running())
 	{
 		frameStart = SDL_GetTicks();

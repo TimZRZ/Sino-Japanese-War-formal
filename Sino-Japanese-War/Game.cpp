@@ -5,6 +5,9 @@
 #include "Vector2D.h"
 #include "Collision.h"
 
+#define LEFT_OFFSET -75
+#define SCALE 1.032712419896443
+
 using namespace std;
 
 Map* map;
@@ -15,7 +18,7 @@ SDL_Event Game::event;
 
 int screenW = 1920;
 int screenH = 1060;
-SDL_Rect Game::camera = { 0,0,screenW,screenH };
+SDL_Rect Game::camera = { LEFT_OFFSET,0,screenW,screenH };
 
 Vector2D Game::posMap00 = Vector2D(0, 0);
 Vector2D Game::posTile00 = Vector2D(0, 0);
@@ -175,8 +178,14 @@ void Game::handleEvents()
 				if (scale < 50)
 				{
 					/* Todo: 日后需要改进*/
-					camera.x += 960 * (pow(trueScale, scale + 1) - pow(trueScale, scale));
-					camera.y += 530 * (pow(trueScale, scale + 1) - pow(trueScale, scale));
+					//计算camera中点
+					int centerX = camera.x + (camera.w / 2) * pow(SCALE, scale);
+					int centerY = camera.y + (camera.h / 2) * pow(SCALE, scale);
+					int neoCenterX = camera.x + (camera.w / 2) * pow(SCALE, scale + 1);
+					int neoCenterY = camera.y + (camera.h / 2) * pow(SCALE, scale + 1);
+					camera.x += neoCenterX - centerX;
+					camera.y += neoCenterY - centerY;
+					//cout << camera.x << " , " << camera.y << endl;
 					scale += 1;
 				}
 				else {
@@ -187,8 +196,16 @@ void Game::handleEvents()
 			{
 				if (scale > 0)
 				{
-					camera.x -= int(camera.x / scale);
-					camera.y -= int(camera.y / scale);
+					//计算camera中点
+					int centerX = camera.x + (camera.w / 2) * pow(SCALE, scale);
+					int centerY = camera.y + (camera.h / 2) * pow(SCALE, scale);
+					int neoCenterX = camera.x + (camera.w / 2) * pow(SCALE, scale - 1);
+					int neoCenterY = camera.y + (camera.h / 2) * pow(SCALE, scale - 1);
+					int XOffSet = (camera.x + neoCenterX - centerX >= LEFT_OFFSET * pow(SCALE, scale - 1)) ?  neoCenterX - centerX : LEFT_OFFSET - camera.x;
+					int YOffSet = (camera.y + neoCenterY - centerY >= 0) ? neoCenterY - centerY : 0 - camera.y;
+
+					camera.x = (camera.x + camera.w <= (screenW + LEFT_OFFSET) * pow(SCALE, scale - 1)) ? camera.x + XOffSet : (screenW + LEFT_OFFSET) * pow(SCALE, scale - 1) - camera.w;
+					camera.y = (camera.y + camera.h <= screenH * pow(SCALE, scale - 1)) ? camera.y + YOffSet : screenH * pow(SCALE, scale - 1) - camera.h;				
 					scale -= 1;
 				}
 				else
@@ -211,11 +228,11 @@ void Game::update()
 
 	SDL_GetMouseState(&mouseX, &mouseY);
 
-	if (mouseX < 50 && camera.x > 0)
+	if (mouseX < 50 && camera.x > LEFT_OFFSET)
 	{
 		camera.x -= 10;
 	}
-	else if (mouseX > screenW - 50 && camera.x + 1920 < 1920 * pow(trueScale, abs(Game::scale)))
+	else if (mouseX > screenW - 50 && camera.x + screenW - LEFT_OFFSET < screenW * pow(trueScale, abs(Game::scale)))
 	{
 		camera.x += 10;
 	}
@@ -224,7 +241,7 @@ void Game::update()
 	{
 		camera.y -= 10;
 	}
-	else if (mouseY > screenH - 50 && camera.y + 1060 < 1060 * pow(trueScale, abs(Game::scale)))
+	else if (mouseY > screenH - 50 && camera.y + screenH < screenH * pow(trueScale, abs(Game::scale)))
 	{
 		camera.y += 10;
 	}
@@ -288,7 +305,7 @@ void Game::render()
 		k->draw();
 	}
 
-	timer.draw();
+	//timer.draw();
 
 	/*
 	for (auto& p : players)
@@ -311,18 +328,25 @@ void Game::clean()
 	cout << "Game Cleaned" << endl;
 }
 
-void Game::addTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex)
+void Game::addTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, int xTrans, int yTrans)
 {
 	auto& tile(manager.addEntity());
-	tile.addComponenet<TileComponent>(srcX, srcY, xpos, ypos, xindex, yindex, 6, 1, "../assets/hexTile.png");
+	tile.addComponenet<TileComponent>(srcX, srcY, xpos, ypos, xindex, yindex, 6, 1, "../assets/hexTile.png", 0, 0);
 	tile.addGroup(groupMap);
 }
 
-void Game::addBackGroundTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex)
+void Game::addBackGroundTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, int xTrans, int yTrans)
 {
 	auto& tile(manager.addEntity());
-	tile.addComponenet<TileComponent>(srcX, srcY, xpos, ypos, xindex, yindex, 0.25, 0, "../assets/map_small.png");
+	tile.addComponenet<TileComponent>(srcX, srcY, xpos, ypos, xindex, yindex, 0.5, 0, "../assets/map_small2.png", xTrans, yTrans);
 	tile.addGroup(groupMapImage);
+}
+
+void Game::addStringTile(int srcX, int srcY, int xpos, int ypos, int xindex, int yindex, const char *path, int xTrans, int yTrans)
+{
+	auto& tile(manager.addEntity());
+	tile.addComponenet<TileComponent>(srcX, srcY, xpos, ypos, xindex, yindex, 2, 2, path, xTrans, yTrans);
+	tile.addGroup(groupMapText);
 }
 
 void Game::addTextImage(int srcX, int srcY, int xpos, int ypos, const char* path)

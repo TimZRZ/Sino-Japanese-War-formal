@@ -1,11 +1,15 @@
 #pragma once
 
+// ECS: Entity Component System
+
 #include <iostream>
 #include <vector>
 #include <memory>
 #include <algorithm>
 #include <bitset>
 #include <array>
+#include <windows.h>
+#include <string>
 
 class Component;
 class Entity;
@@ -33,11 +37,11 @@ using ComponentBitSet = std::bitset<maxComponents>;
 using GroupBitset = std::bitset<maxGroups>;
 using ComponentArray = std::array<Component*, maxComponents>;
 
+// 游戲模塊
 class Component
 {
 public:
 	Entity* entity;
-
 	virtual void init() {}
 	virtual void update() {}
 	virtual void draw() {}
@@ -45,6 +49,7 @@ public:
 	virtual ~Component() {}
 };
 
+// 游戲實體單元
 class Entity
 {
 private:
@@ -57,23 +62,36 @@ private:
 	GroupBitset groupBitset;
 
 public:
+
 	Entity(Manager& mManager) : manager(mManager) {}
+
 	void update()
 	{
 		for (auto& c : components) c->update();
 	}
-	void draw() {
+
+	void draw() 
+	{
 		for (auto& c : components) c->draw();
 	}
 
-	bool isActive() { return active; };
-	void distroy() { active = false; }
+	bool isActive()
+	{ 
+		return active; 
+	};
+
+	void distroy() 
+	{ 
+		active = false; 
+	};
 
 	bool hasGroup(Group mGroup)
 	{
 		return groupBitset[mGroup];
-	}
+	};
+
 	void addGroup(Group mGroup);
+
 	void delGroup(Group mGroup);
 
 	template <typename T> bool hasComponent() const
@@ -81,8 +99,8 @@ public:
 		return componenetBitset[getNewComponentTypeID<T>()];
 	}
 
-	template <typename T, typename... TArgs>
-	T& addComponenet(TArgs&&... mArgs)
+	template <typename T, typename... TArgs>T& 
+	addComponenet(TArgs&&... mArgs)
 	{
 		T* c(new T(std::forward<TArgs>(mArgs)...));
 		c->entity = this;
@@ -103,6 +121,8 @@ public:
 	}
 };
 
+
+// 實體單元管理器
 class Manager
 {
 private:

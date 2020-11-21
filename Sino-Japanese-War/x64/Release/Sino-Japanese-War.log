@@ -1,0 +1,14 @@
+﻿  Collision.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\collision.h(3): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  ECS.cpp
+  Game.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\game.hpp(4): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  GameObject.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\game.hpp(4): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  main.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\game.hpp(4): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  Map.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\game.hpp(4): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  TextureManager.cpp
+g:\programming\sino-japanese-war\sino-japanese-war\game.hpp(4): fatal error C1083: 無法開啟包含檔案: 'SDL.h': No such file or directory
+  Vector2D.cpp
