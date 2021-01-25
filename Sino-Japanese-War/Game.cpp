@@ -1,9 +1,12 @@
 #include "Game.hpp"
+#include "Types.h"
 #include "TextureManager.h"
 #include "Map.h"
 #include "Components.h"
 #include "Vector2D.h"
 #include "Collision.h"
+#include "Warships.h"
+#include "WarshipSelectorComponent.h"
 
 #define LEFT_OFFSET -75
 #define SCALE 1.032712419896443
@@ -12,6 +15,7 @@ using namespace std;
 
 Map* map;
 Manager manager;
+Warships *warshipManager;
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
@@ -29,31 +33,18 @@ bool Game::dragMap = false;
 
 auto& chosenShip(manager.addEntity());
 
-auto& timer(manager.addEntity());
+//auto& timer(manager.addEntity());
 
 int Game::scale = 0;
 
-auto& warship(manager.addEntity());
-auto& wall(manager.addEntity());
-auto& backImage(manager.addEntity());
-
 const char* mapfile = "../assets/terrain_ss.png";
-
-enum groupLabels : std::size_t
-{
-	groupMap,
-	groupMapText,
-	groupMapImage,
-	groupWarships,
-	groupEnemies,
-	groupColliders,
-};
 
 auto& mapImages(manager.getGroup(groupMapImage));
 auto& mapTexts(manager.getGroup(groupMapText));
 auto& tiles(manager.getGroup(groupMap));
 auto& warships(manager.getGroup(groupWarships));
 auto& enemies(manager.getGroup(groupEnemies));
+auto& warshipSelectors(manager.getGroup(groupWarshipSelectors));
 
 Game::Game()
 {}
@@ -82,7 +73,7 @@ void Game::init(const char* title, int xpos, int ypos,
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		if (renderer)
 		{
-			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(renderer, 225, 204, 161, 255);
 			cout << "Renderer Created!" << endl;
 		}
 		isRunning = true;
@@ -92,23 +83,43 @@ void Game::init(const char* title, int xpos, int ypos,
 
 	//ECS implementation
 
-	timer.addComponenet<TimerComponent>();
+	//timer.addComponenet<TimerComponent>();
 
 	Map::loadMap("../assets/map.map", 40, 20);
-	
-	/*
-	player.addComponenet<TransformComponent>(4);
-	player.addComponenet<SpriteComponent>("../assets/player_animes.png", true);
-	player.addComponenet<KeyboardController>();
-	player.addComponenet<ColliderComponent>("player");
-	player.addGroup(groupPlayers);
-	*/
 
-	//backImage.addComponenet<MapImageComponent>(0, 0, 0, 0, 1, "../assets/Grande-Map.png");
-	//backImage.addGroup(groupMapImage);
+	warshipManager = new Warships();
+	warshipManager->loadWarships(&manager);
 
-	warship.addComponenet<WarshipComponent>(0, 0, 10, 10, 0, 1, 1, "../assets/ship.png");
-	warship.addGroup(groupWarships);
+	// Selector相关
+	int selectorY = 50;
+	for (auto& s : warships)
+	{
+		const char* notChosenImgPath;
+		const char* chosenImgPath;
+		switch (s->getComponent<WarshipComponent>().data->type) {
+			case 1:
+				notChosenImgPath = "../assets/selector/q1-0.png";
+				chosenImgPath = "../assets/selector/q1-1.png";
+				break;
+			case 2:
+				notChosenImgPath = "../assets/selector/q2-0.png";
+				chosenImgPath = "../assets/selector/q2-1.png";
+				break;
+			case 3:
+				notChosenImgPath = "../assets/selector/q3-0.png";
+				chosenImgPath = "../assets/selector/q3-1.png";
+				break;
+			case 4:
+				notChosenImgPath = "../assets/selector/q3-0.png";
+				chosenImgPath = "../assets/selector/q3-1.png";
+				break;
+		}
+
+		auto& selector(manager.addEntity());
+		selector.addComponenet<WarshipSelectorComponent>(0, selectorY, 1, notChosenImgPath, chosenImgPath, s->getComponent<WarshipComponent>().data);
+		selector.addGroup(groupWarshipSelectors);
+		selectorY += 50;
+	}
 }
 
 int mouseX;
@@ -117,21 +128,53 @@ float trueScale = 1.032712419896443;
 
 void Game::checkClick(int x, int y)
 {
-	for (auto& s : warships)
+	BOOL shouldReturn = FALSE;
+	for (auto& s : warshipSelectors)
 	{
-		if (x >= s->getComponent<WarshipComponent>().destRect.x &&
-			x <= s->getComponent<WarshipComponent>().destRect.x + s->getComponent<WarshipComponent>().destRect.w &&
-			y >= s->getComponent<WarshipComponent>().destRect.h &&
-			y <= s->getComponent<WarshipComponent>().destRect.y + s->getComponent<WarshipComponent>().destRect.h)
+		if (s->getComponent<WarshipSelectorComponent>().clickCheck(x, y))
 		{
-			cout << "选中了" << endl;
-			s->getComponent<WarshipComponent>().onClicked();
+			s->getComponent<WarshipSelectorComponent>().onClicked();
+			warshipManager->choseWarship(s->getComponent<WarshipSelectorComponent>().data->position.x,
+										s->getComponent<WarshipSelectorComponent>().data->position.y,
+										s->getComponent<WarshipSelectorComponent>().data->id);
+			shouldReturn = TRUE;
 		}
 		else {
-			if (s->getComponent<WarshipComponent>().isChosen)
+			if (s->getComponent<WarshipSelectorComponent>().isChosen)
 			{
-				s->getComponent<WarshipComponent>().offClicked();
+				s->getComponent<WarshipSelectorComponent>().offClicked();
 			}
+		}
+	}
+
+	if (shouldReturn)
+	{
+		return;
+	}
+
+	for (auto& s : warships)
+	{
+		if (s->getComponent<WarshipComponent>().clickCheck(x, y))
+		{
+			int indexX = int(s->getComponent<WarshipComponent>().data->position.x);
+			int indexY = int(s->getComponent<WarshipComponent>().data->position.y);
+			warshipManager->checkNext(indexX, indexY);
+
+			for (auto& s : warshipSelectors) 
+			{
+				string id = warshipManager->warshipStack[indexX][indexY][warshipManager->curIndex]->data->id;
+				if (s->getComponent<WarshipSelectorComponent>().data->id == id)
+				{
+					s->getComponent<WarshipSelectorComponent>().onClicked();
+				}
+				else 
+				{
+					s->getComponent<WarshipSelectorComponent>().offClicked();
+				}
+	
+			}
+
+			break;
 		}
 	}
 
@@ -303,6 +346,11 @@ void Game::render()
 	for (auto& k : mapTexts)
 	{
 		k->draw();
+	}
+
+	for (auto& s : warshipSelectors)
+	{
+		s->draw();
 	}
 
 	//timer.draw();

@@ -47,6 +47,7 @@ public:
 	virtual void draw() {}
 
 	virtual ~Component() {}
+	virtual BOOL clickCheck(int x, int y) { return FALSE; }
 };
 
 // сн▒Р▄█Сw├нт╙

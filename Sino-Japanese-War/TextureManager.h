@@ -1,6 +1,11 @@
 #pragma once
 
 #include "Game.hpp"
+#include <string>
+#include <iostream>
+#include <inttypes.h>
+
+using namespace std;
 
 class TextureManager {
 

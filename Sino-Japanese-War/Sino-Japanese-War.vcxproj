@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -26,6 +26,11 @@
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="CommanderData.h" />
+    <ClInclude Include="CSVParser.h" />
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="Warships.h" />
+    <ClInclude Include="Utility.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="TextImageComponent.h" />
@@ -36,6 +41,8 @@
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WarshipComponent.h" />
+    <ClInclude Include="WarshipData.h" />
+    <ClInclude Include="WarshipSelectorComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Collision.cpp" />
