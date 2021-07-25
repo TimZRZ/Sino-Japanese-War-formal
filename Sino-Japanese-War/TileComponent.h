@@ -1,9 +1,8 @@
 #pragma once
 
 #include "ECS.h"
+#include "Systems.h"
 #include "TransformComponent.h"
-#include "SpriteComponent.h"
-#include "SDL.h"
 #include <math.h>
 
 #define SCALE 1.032712419896443

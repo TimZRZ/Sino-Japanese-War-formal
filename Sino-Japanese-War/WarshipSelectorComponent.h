@@ -2,9 +2,8 @@
 
 #include "ECS.h"
 #include "TransformComponent.h"
-#include "SpriteComponent.h"
 #include "SDL.h"
-#include "WarshipData.h"
+#include "WarshipModel.h"
 #include <math.h>
 
 class WarshipSelectorComponent : public Component
@@ -14,7 +13,7 @@ public:
 	const char* texturePath0;
 	const char* texturePath1;
 	string name;
-	WarshipData *data;
+	WarshipModel* data;
 	bool isChosen;
 	SDL_Rect srcRect, destRect, textSrcRect, textDestRect;
 	SDL_Texture* tex;
@@ -26,7 +25,7 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
-	WarshipSelectorComponent(int x, int y, float scale, const char* notChosenImgPath, const char* chosenImgPath, WarshipData *warshipData)
+	WarshipSelectorComponent(int x, int y, float scale, const char* notChosenImgPath, const char* chosenImgPath, WarshipModel *warshipData)
 	{
 		destRect.x = x;
 		destRect.y = y;
@@ -53,7 +52,7 @@ public:
 		SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 		texture = TextureManager::loadTexture(texturePath0);
 
-		TTF_Font* font = TTF_OpenFont("../assets/font/STFANGSO.TTF", 27);
+		TTF_Font* font = TTF_OpenFont("../assets/font/FGHeiseiMincho-W9-01.ttf", 30);
 		//TTF_SetFontStyle(font, TTF_STYLE_BOLD);
 		SDL_Color color = { 0, 0, 0 };
 		SDL_Surface* surf = TTF_RenderUTF8_Solid(font, name.c_str(), color);

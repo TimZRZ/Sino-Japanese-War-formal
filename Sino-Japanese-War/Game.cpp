@@ -1,12 +1,14 @@
 #include "Game.hpp"
 #include "Types.h"
 #include "TextureManager.h"
-#include "Map.h"
-#include "Components.h"
+#include "MapPanel.h"
 #include "Vector2D.h"
-#include "Collision.h"
 #include "Warships.h"
+#include "WarshipInfoPanel.h"
+
+// Components
 #include "WarshipSelectorComponent.h"
+#include "TextImageComponent.h"
 
 #define LEFT_OFFSET -75
 #define SCALE 1.032712419896443
@@ -16,12 +18,11 @@ using namespace std;
 Map* map;
 Manager manager;
 Warships *warshipManager;
+WarshipInfoPanel *warshipInfo;
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
-int screenW = 1920;
-int screenH = 1060;
 SDL_Rect Game::camera = { LEFT_OFFSET,0,screenW,screenH };
 
 Vector2D Game::posMap00 = Vector2D(0, 0);
@@ -30,8 +31,6 @@ Vector2D Game::posTile00 = Vector2D(0, 0);
 std::vector<ColliderComponent*> Game::colliders;
 bool Game::isRunning = false;
 bool Game::dragMap = false;
-
-auto& chosenShip(manager.addEntity());
 
 //auto& timer(manager.addEntity());
 
@@ -42,9 +41,9 @@ const char* mapfile = "../assets/terrain_ss.png";
 auto& mapImages(manager.getGroup(groupMapImage));
 auto& mapTexts(manager.getGroup(groupMapText));
 auto& tiles(manager.getGroup(groupMap));
-auto& warships(manager.getGroup(groupWarships));
 auto& enemies(manager.getGroup(groupEnemies));
 auto& warshipSelectors(manager.getGroup(groupWarshipSelectors));
+auto& warshipInfoGroup(manager.getGroup(groupWarshipInfo));
 
 Game::Game()
 {}
@@ -92,11 +91,11 @@ void Game::init(const char* title, int xpos, int ypos,
 
 	// Selector相关
 	int selectorY = 50;
-	for (auto& s : warships)
+	for (WarshipComponent *s : warshipManager->warships)
 	{
 		const char* notChosenImgPath;
 		const char* chosenImgPath;
-		switch (s->getComponent<WarshipComponent>().data->type) {
+		switch (s->data->type) {
 			case 1:
 				notChosenImgPath = "../assets/selector/q1-0.png";
 				chosenImgPath = "../assets/selector/q1-1.png";
@@ -116,19 +115,30 @@ void Game::init(const char* title, int xpos, int ypos,
 		}
 
 		auto& selector(manager.addEntity());
-		selector.addComponenet<WarshipSelectorComponent>(0, selectorY, 1, notChosenImgPath, chosenImgPath, s->getComponent<WarshipComponent>().data);
+		selector.addComponenet<WarshipSelectorComponent>(0, selectorY, 1, notChosenImgPath, chosenImgPath, s->data);
 		selector.addGroup(groupWarshipSelectors);
 		selectorY += 50;
 	}
+
+	// WarshipInfo相關
+	warshipInfo = new WarshipInfoPanel();
+	warshipInfo->loadWarshipInfoPanel(&manager);
+
 }
 
 int mouseX;
 int mouseY;
 float trueScale = 1.032712419896443;
 
+void showInfoBoard(BOOL shouldShow)
+{
+	// warshipInfoGroup[0]->getComponent<WarshipInfoComponent>().shouldShow = shouldShow;
+}
+
 void Game::checkClick(int x, int y)
 {
 	BOOL shouldReturn = FALSE;
+
 	for (auto& s : warshipSelectors)
 	{
 		if (s->getComponent<WarshipSelectorComponent>().clickCheck(x, y))
@@ -137,6 +147,7 @@ void Game::checkClick(int x, int y)
 			warshipManager->choseWarship(s->getComponent<WarshipSelectorComponent>().data->position.x,
 										s->getComponent<WarshipSelectorComponent>().data->position.y,
 										s->getComponent<WarshipSelectorComponent>().data->id);
+			// warshipInfoGroup[0]->getComponent<WarshipInfoComponent>().updateData(s->getComponent<WarshipSelectorComponent>().data);
 			shouldReturn = TRUE;
 		}
 		else {
@@ -149,15 +160,24 @@ void Game::checkClick(int x, int y)
 
 	if (shouldReturn)
 	{
+		showInfoBoard(shouldReturn);
 		return;
 	}
 
-	for (auto& s : warships)
+	BOOL shouldShowInfo = FALSE;
+	for (WarshipComponent *s : warshipManager->warships)
 	{
-		if (s->getComponent<WarshipComponent>().clickCheck(x, y))
+		if (s->clickCheck(x, y))
 		{
-			int indexX = int(s->getComponent<WarshipComponent>().data->position.x);
-			int indexY = int(s->getComponent<WarshipComponent>().data->position.y);
+			int indexX = int(s->data->position.x);
+			int indexY = int(s->data->position.y);
+
+			// 先全部置为“未选中”状态
+			for (WarshipComponent *s : warshipManager->warships)
+			{
+				s->offClicked();
+			}
+
 			warshipManager->checkNext(indexX, indexY);
 
 			for (auto& s : warshipSelectors) 
@@ -166,36 +186,47 @@ void Game::checkClick(int x, int y)
 				if (s->getComponent<WarshipSelectorComponent>().data->id == id)
 				{
 					s->getComponent<WarshipSelectorComponent>().onClicked();
+					// warshipInfoGroup[0]->getComponent<WarshipInfoComponent>().updateData(s->getComponent<WarshipSelectorComponent>().data);
+					shouldShowInfo = TRUE;
 				}
 				else 
 				{
 					s->getComponent<WarshipSelectorComponent>().offClicked();
 				}
-	
 			}
-
 			break;
+		}
+		else
+		{
+			s->offClicked();
 		}
 	}
 
-	event.type = SDL_MOUSEBUTTONUP;
+	showInfoBoard(shouldShowInfo);
+
+	event.type = SDL_MOUSEBUTTONUP;	
 }
 
 void Game::checkMove(int x, int y)
 {
-	for (auto& t : tiles)
+	for (WarshipComponent *s : warshipManager->warships)
 	{
-		if (t->getComponent<TileComponent>().inTile(x, y))
+		if (s->isChosen)
 		{
-			for (auto& s : warships)
+			for (auto& t : tiles)
 			{
-				if (s->getComponent<WarshipComponent>().isChosen)
+				if (t->getComponent<TileComponent>().inTile(x, y))
 				{
-					s->getComponent<WarshipComponent>().Move(t->getComponent<TileComponent>().index.x, t->getComponent<TileComponent>().index.y);
+					Vector2D warshipPos = s->data->position;
+					Vector2D newPos = t->getComponent<TileComponent>().index;
+					warshipManager->move(warshipPos, newPos, s);
+					s->Move(t->getComponent<TileComponent>().index.x, t->getComponent<TileComponent>().index.y);
 				}
-
 			}
+
+			break;
 		}
+
 	}
 }
 
@@ -326,8 +357,6 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 
-
-	
 	for (auto& i : mapImages)
 	{
 		i->draw();
@@ -335,13 +364,11 @@ void Game::render()
 	
 	for (auto& t : tiles)
 	{
+
 		t->draw();
 	}
 
-	for (auto& s : warships)
-	{
-		s->draw();
-	}
+	warshipManager->draw();
 
 	for (auto& k : mapTexts)
 	{
@@ -352,6 +379,11 @@ void Game::render()
 	{
 		s->draw();
 	}
+
+	// if (warshipInfoGroup[0]->getComponent<WarshipInfoComponent>().shouldShow)
+	// {
+	// 	warshipInfoGroup[0]->draw();
+	// }
 
 	//timer.draw();
 

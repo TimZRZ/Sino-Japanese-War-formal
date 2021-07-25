@@ -19,38 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="ColliderComponent.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="Components.h" />
+    <ClInclude Include="BasicComponents.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Game.hpp" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="CommanderData.h" />
+    <ClInclude Include="CommanderModel.h" />
     <ClInclude Include="CSVParser.h" />
+    <ClInclude Include="Systems.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="WarshipInfoPanel.h" />
     <ClInclude Include="Warships.h" />
-    <ClInclude Include="Utility.h" />
-    <ClInclude Include="KeyboardController.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="MapPanel.h" />
     <ClInclude Include="TextImageComponent.h" />
-    <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TileComponent.h" />
     <ClInclude Include="TimerComponent.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WarshipComponent.h" />
-    <ClInclude Include="WarshipData.h" />
+    <ClInclude Include="WarshipModel.h" />
     <ClInclude Include="WarshipSelectorComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapPanel.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>

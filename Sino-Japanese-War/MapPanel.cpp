@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "MapPanel.h"
 #include "Game.hpp"
 #include <fstream>
 

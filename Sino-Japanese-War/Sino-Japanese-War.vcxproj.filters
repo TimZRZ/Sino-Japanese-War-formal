@@ -13,73 +13,40 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="來源檔案\ECS">
-      <UniqueIdentifier>{1df8674e-ef56-4297-bf49-57b3cc29b64c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="來源檔案\ECS\DataModel">
-      <UniqueIdentifier>{004b98d9-c2e0-451f-bf25-bd7c0fb7346e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="來源檔案\Utils">
       <UniqueIdentifier>{a8a217a3-cbb3-41b1-95de-ec2acf577d31}</UniqueIdentifier>
     </Filter>
     <Filter Include="來源檔案\Panels">
       <UniqueIdentifier>{3eccc2e6-5417-4397-910b-aa73a3bffa49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="來源檔案\Components">
+      <UniqueIdentifier>{24d34949-9d84-424e-ab0c-e926e3006b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Systems">
+      <UniqueIdentifier>{eaf5e514-8b60-4557-9088-79b84739303e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Components\BasicComponents">
+      <UniqueIdentifier>{8c629372-ad13-420e-b7b2-5c165dfb244d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Components\MapComponents">
+      <UniqueIdentifier>{93050938-3170-4a82-b148-6a395eb4e88f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Components\UIComponents">
+      <UniqueIdentifier>{c5a0c5e6-8976-4059-8e91-c9dbd65d6b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Components\GameObjectComponents">
+      <UniqueIdentifier>{6a7dbd42-edbf-4b26-8bb5-4a3b809b4ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Models">
+      <UniqueIdentifier>{004b98d9-c2e0-451f-bf25-bd7c0fb7346e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\Panels\MapPanel">
+      <UniqueIdentifier>{ca26ae6d-333c-4ce0-80f5-169e25a001e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Collision.h">
-      <Filter>來源檔案</Filter>
-    </ClInclude>
     <ClInclude Include="Game.hpp">
       <Filter>來源檔案</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>來源檔案</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>來源檔案</Filter>
-    </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="TileComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Components.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyboardController.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="TextImageComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="WarshipComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="TimerComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="WarshipData.h">
-      <Filter>來源檔案\ECS\DataModel</Filter>
-    </ClInclude>
-    <ClInclude Include="CommanderData.h">
-      <Filter>來源檔案\ECS\DataModel</Filter>
-    </ClInclude>
-    <ClInclude Include="Utility.h">
-      <Filter>來源檔案\ECS\DataModel</Filter>
     </ClInclude>
     <ClInclude Include="CSVParser.h">
       <Filter>來源檔案\Utils</Filter>
@@ -87,43 +54,73 @@
     <ClInclude Include="Types.h">
       <Filter>來源檔案\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="WarshipSelectorComponent.h">
-      <Filter>來源檔案\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="Warships.h">
-      <Filter>來源檔案\Panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
       <Filter>來源檔案\Panels</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>來源檔案\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="WarshipInfoPanel.h">
+      <Filter>來源檔案\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>來源檔案\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems.h">
+      <Filter>來源檔案\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>來源檔案</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>來源檔案\Components\BasicComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicComponents.h">
+      <Filter>來源檔案\Components\BasicComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="TextImageComponent.h">
+      <Filter>來源檔案\Components\MapComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerComponent.h">
+      <Filter>來源檔案\Components\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="TileComponent.h">
+      <Filter>來源檔案\Components\BasicComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="WarshipComponent.h">
+      <Filter>來源檔案\Components\GameObjectComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="WarshipSelectorComponent.h">
+      <Filter>來源檔案\Components\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="CommanderModel.h">
+      <Filter>來源檔案\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="WarshipModel.h">
+      <Filter>來源檔案\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPanel.h">
+      <Filter>來源檔案\Panels\MapPanel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Collision.cpp">
-      <Filter>來源檔案</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>來源檔案</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>來源檔案</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS.cpp">
-      <Filter>來源檔案\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>來源檔案\Panels</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>來源檔案\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>來源檔案\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPanel.cpp">
+      <Filter>來源檔案\Panels\MapPanel</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

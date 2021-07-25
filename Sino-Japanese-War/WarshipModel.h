@@ -1,12 +1,12 @@
 #pragma once
 
 #include <math.h>
-#include "CommanderData.h"
+#include "CommanderModel.h"
 #include "Vector2D.h"
 
 using namespace std;
 
-class WarshipData
+class WarshipModel
 {
 public:
 	Vector2D position;
@@ -18,7 +18,7 @@ public:
 	int		agile;			// 敏捷度，涉及转速等
 	int		vision;			// 视野
 	int		firePower;		// 火力
-	Commander commander;	// 指挥官
+	CommanderModel* commander;	// 指挥官
 
 	// virtual float getFireDamage();
 	// virtual float setFireDamage();
@@ -33,7 +33,7 @@ public:
 | 导向 | 动力 | 物资 | 燃料 | 鱼雷 |
 ------------------------------------
 */
-class IroncladWarship: public WarshipData
+class IroncladWarship: public WarshipModel
 {
 public:
 	int gun1[2]; int mast[2]; int gun2[2]; int bridge[2];  int gun3[2];
@@ -48,7 +48,7 @@ public:
 | 导向 + 动力 | 物资 + 燃料 | 鱼雷 |
 -----------------------------------
 */
-class Cruiser : public WarshipData
+class Cruiser : public WarshipModel
 {
 public:
 	int gun1[2]; int mast[2]; int bridge[2];  int gun2[2];
@@ -63,7 +63,7 @@ public:
 | 导向 + 动力 + 物资 + 燃料 |
 ----------------------------
 */
-class Gunboat: public WarshipData
+class Gunboat: public WarshipModel
 {
 public:
 	int gun1[2]; int mast[2]; int bridge[2];  int gun3[2];
@@ -78,7 +78,7 @@ public:
 | 导向 + 动力 + 物资 + 燃料 | 鱼雷 |
 ----------------------------------
 */
-class TorpedoCruiser: public WarshipData
+class TorpedoCruiser: public WarshipModel
 {
 public:
 	int gun1[2]; int mast[2]; int bridge[2];

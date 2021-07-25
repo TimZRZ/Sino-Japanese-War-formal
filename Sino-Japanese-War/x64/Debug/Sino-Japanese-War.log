@@ -1,88 +1,86 @@
 ﻿  Game.cpp
-g:\programming\sino-japanese-war\sino-japanese-war\components.h(4): warning C4067: 未預期的語彙基元，接著前置處理器指示詞 - 必須是新行
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(35): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(34): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(35): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(36): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(37): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(44): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(45): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(46): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(58): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(57): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(71): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(72): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(73): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(75): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(76): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(79): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(80): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(74): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(75): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(78): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(79): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(82): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(83): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\tilecomponent.h(84): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(47): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(48): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(50): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(51): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(78): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(86): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(90): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(91): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(93): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(94): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(101): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(102): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(118): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(120): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(121): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(123): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(124): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(125): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(126): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(129): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(130): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(133): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(134): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(144): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(145): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(146): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warships.h(55): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warships.h(62): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+g:\programming\sino-japanese-war\sino-japanese-war\warships.h(93): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(27): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(28): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(29): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(44): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(43): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(45): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(46): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(47): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(48): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
 g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(49): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\textimagecomponent.h(50): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(43): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(44): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(46): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(47): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(57): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(58): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(61): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(62): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(73): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(74): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(90): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(92): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(93): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(95): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(96): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(97): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(98): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(101): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(102): warning C4244: '+=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(105): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warshipcomponent.h(106): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4312: '類型轉換': 將 'int' 轉換為較大的 'char *'
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4477: 'sprintf_s' : 格式字串 '%d' 需要 'int' 類型的引數，但 variadic 引數 1 的類型為 'char *'
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4313: 'sprintf_s': 格式字串中的 '%d' 與類型 'char *' 的引數 1 衝突
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4477: 'sprintf_s' : 格式字串 '%d' 需要 'int' 類型的引數，但 variadic 引數 3 的類型為 'char *'
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4313: 'sprintf_s': 格式字串中的 '%d' 與類型 'char *' 的引數 3 衝突
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4477: 'sprintf_s' : 格式字串 '%d' 需要 'int' 類型的引數，但 variadic 引數 5 的類型為 'char *'
-g:\programming\sino-japanese-war\sino-japanese-war\timercomponent.h(73): warning C4313: 'sprintf_s': 格式字串中的 '%d' 與類型 'char *' 的引數 5 衝突
-g:\programming\sino-japanese-war\sino-japanese-war\warships.h(61): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
-g:\programming\sino-japanese-war\sino-japanese-war\warships.h(67): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(127): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(138): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(137): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(188): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(194): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(225): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(226): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(227): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(228): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(243): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(244): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(245): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(246): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(250): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(251): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-g:\programming\sino-japanese-war\sino-japanese-war\ecs.h(106): warning C4244: '引數': 將 '_Ty' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(131): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(148): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(147): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(218): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(223): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(256): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(257): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(258): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(259): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(274): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(275): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(276): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(277): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(281): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(282): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\ecs.h(108): warning C4244: '引數': 將 '_Ty' 轉換為 'float'，由於類型不同，可能導致資料遺失
           with
           [
               _Ty=int
           ]
-  g:\programming\sino-japanese-war\sino-japanese-war\warships.h(23): note: 請參閱所要編譯的函式 樣板 具現化 'T &Entity::addComponenet<WarshipComponent,int,int,int&,int&,int,const _Elem*,int&>(int &&,int &&,int &,int &,int &&,const _Elem *&&,int &)' 之參考
+  g:\programming\sino-japanese-war\sino-japanese-war\warships.h(31): note: 請參閱所要編譯的函式 樣板 具現化 'T &Entity::addComponenet<WarshipComponent,int,int,int&,int&,int,const _Elem*,int&>(int &&,int &&,int &,int &,int &&,const _Elem *&&,int &)' 之參考
           with
           [
               T=WarshipComponent,
               _Elem=char
           ]
-g:\programming\sino-japanese-war\sino-japanese-war\ecs.h(106): warning C4244: '引數': 將 '_Ty' 轉換為 'float'，由於類型不同，可能導致資料遺失
+g:\programming\sino-japanese-war\sino-japanese-war\ecs.h(108): warning C4244: '引數': 將 '_Ty' 轉換為 'float'，由於類型不同，可能導致資料遺失
           with
           [
               _Ty=double
           ]
-  g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(389): note: 請參閱所要編譯的函式 樣板 具現化 'T &Entity::addComponenet<TileComponent,int&,int&,int&,int&,int&,int&,double,int,const char(&)[25],int&,int&>(int &,int &,int &,int &,int &,int &,double &&,int &&,const char (&)[25],int &,int &)' 之參考
+  g:\programming\sino-japanese-war\sino-japanese-war\game.cpp(421): note: 請參閱所要編譯的函式 樣板 具現化 'T &Entity::addComponenet<TileComponent,int&,int&,int&,int&,int&,int&,double,int,const char(&)[25],int&,int&>(int &,int &,int &,int &,int &,int &,double &&,int &&,const char (&)[25],int &,int &)' 之參考
           with
           [
               T=TileComponent

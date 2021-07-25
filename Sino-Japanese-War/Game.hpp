@@ -7,6 +7,9 @@
 #include <iostream>
 #include <vector>
 
+static int screenW = 1920;
+static int screenH = 1060;
+
 class ColliderComponent;
 
 class Game {

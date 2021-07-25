@@ -7,6 +7,7 @@ enum groupLabels : std::size_t
 	groupMapText,
 	groupMapImage,
 	groupWarships,
+	groupWarshipInfo,
 	groupEnemies,
 	groupColliders,
 	groupWarshipSelectors

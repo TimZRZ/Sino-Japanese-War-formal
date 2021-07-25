@@ -10,6 +10,8 @@
 #include <array>
 #include <windows.h>
 #include <string>
+#include "SDL.h"
+#include <SDL_ttf.h>
 
 class Component;
 class Entity;

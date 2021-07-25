@@ -1,11 +1,9 @@
 #pragma once
 
 #include "ECS.h"
-#include "TransformComponent.h"
-#include "SpriteComponent.h"
-#include "SDL.h"
+#include "Systems.h"
+#include "BasicComponents.h"
 #include <math.h>
-#include <SDL_ttf.h>
 
 using namespace std;
 
